@@ -21,7 +21,7 @@ export PROJECT_DIR="$PWD"
 mkdir -p images
 ```
 
-Pull the pinned images. If required on your system, set the cache and build temporary paths to writable storage with enough free space before pulling. The pull command removes the tag from the reference because SingularityCE 3.11 rejects a reference containing both tag and digest; the digest remains pinned.
+The workflow uses pinned registry images by default, so supplying local container paths is optional. Nextflow/Singularity can fetch the pinned images when needed. To download them in advance (for example, when compute nodes cannot access the registry), set writable cache and temporary paths and run:
 
 ```bash
 export SINGULARITY_CACHEDIR=/path/to/singularity-cache
@@ -107,7 +107,7 @@ In the tested setup, Bakta used database 6.0 full, geNomad 1.9, AMRFinderPlus 20
 
 Put one uncompressed `.fa`, `.fna` or `.fasta` assembly per sample in an input directory. Sample basenames must be unique and start with a letter or digit.
 
-Run Nextflow from the project directory on the login node, following your cluster's policy. SLURM executes the workflow tasks. Export the database paths in this shell (or pass the same paths directly as CLI options):
+Run Nextflow from the project directory on the login node, following your cluster's policy. SLURM executes the workflow tasks. The database directories themselves are required for this full workflow, but their command-line path options are optional: the config reads these environment variables, or you can pass the paths as `--bakta_db`, `--genomad_db`, `--mob_db`, `--staramr_db` and `--amrfinder_db` on the run command.
 
 ```bash
 export BAKTA_DB=/path/to/genome-annotation-databases/bakta/db
@@ -123,21 +123,12 @@ NXF_SYNTAX_PARSER=v1 nextflow -c nextflow_annotation.config run genome_annotatio
   --outDir "$PROJECT_DIR/results" \
   --run_name example_run \
   --threads 4 --cpus 4 --memory '32 GB' --time '6h' \
-  --bakta_db "$BAKTA_DB" \
-  --genomad_db "$GENOMAD_DB" \
-  --mob_db "$MOB_DB" \
-  --staramr_db "$STARAMR_DB" \
-  --amrfinder_db "$AMRFINDER_DB" \
-  --bakta_container "$PROJECT_DIR/images/Bakta.sif" \
-  --genomad_container "$PROJECT_DIR/images/geNomad.sif" \
-  --mob_container "$PROJECT_DIR/images/MOB-suite.sif" \
-  --staramr_container "$PROJECT_DIR/images/StarAMR.sif" \
-  --rgi_container "$PROJECT_DIR/images/RGI.sif" \
-  --amrfinder_container "$PROJECT_DIR/images/AMRFinderPlus.sif" \
   -work-dir "$PROJECT_DIR/work-example"
 ```
 
-The database paths are required because these analyses depend on reference databases, but their locations are configurable. Set them as environment variables or pass them on the command line; the command above shows the explicit form. `--samples sample1,sample2` optionally selects basenames without extensions. `--min_assembly_bases` defaults to `0`; a positive value skips shorter non-empty assemblies.
+The container path options (`--bakta_container`, `--genomad_container`, `--mob_container`, `--staramr_container`, `--rgi_container`, and `--amrfinder_container`) are also optional. The workflow defaults to the pinned registry images. Use those options only to override the defaults, such as when running a local `.sif` file; downloaded `.sif` files are not selected automatically.
+
+`--samples sample1,sample2` optionally selects basenames without extensions. `--min_assembly_bases` defaults to `0`; a positive value skips shorter non-empty assemblies.
 
 Keep the work directory so a failed run can be resumed with the same command plus `-resume`. Confirm Nextflow marks completed tasks as cached. Scheduler, container startup or staging errors can stop a run before the final status summary is produced.
 
