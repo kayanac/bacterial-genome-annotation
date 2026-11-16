@@ -1,0 +1,26 @@
+# Nextflow work and run outputs
+work/
+work-*/
+results/
+.nextflow/
+.nextflow.log*
+*.nextflow.log
+trace.txt
+report.html
+timeline.html
+pipeline-dag.png
+
+# Reference databases and downloaded container images
+*.sif
+*.img
+databases/
+images/
+input/
+singularity-cache/
+singularity-tmp/
+reference/
+data/
+*.fa
+*.fna
+*.fasta
+

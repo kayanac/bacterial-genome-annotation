@@ -1,0 +1,7 @@
+tool	version	image	image_digest
+Bakta	1.12.2	quay.io/biocontainers/bakta:1.12.2--pyhdfd78af_0	sha256:d92c9fcf5e502b6607fb3672df98094ce98a0352ce98e72017f389db863d48a3
+geNomad	1.13.0	quay.io/biocontainers/genomad:1.13.0--pyhdfd78af_0	sha256:c648807baea891177fc571eab444a07ab310ce56c6f80b2939cc29ee892fa795
+MOB-suite	3.1.9	quay.io/biocontainers/mob_suite:3.1.9--pyhdfd78af_1	sha256:0ae9dc0ee64c21e00e184e4bc02e20bc785a69382fed44ab69eb6c37aff5a69b
+StarAMR	0.12.3	quay.io/biocontainers/staramr:0.12.3--pyhdfd78af_0	sha256:d3fd72ca3d635fd3563061f35760b7a6a016e6b801b14a99db1067e10c7da272
+RGI	6.0.8	quay.io/biocontainers/rgi:6.0.8--pyh05cac1d_0	sha256:71d87a905d29bbc2dd2a44500bf99d5da2df4ccbef08123b047ad48350868583
+AMRFinderPlus	4.2.7	quay.io/biocontainers/ncbi-amrfinderplus:4.2.7--hf69ffd2_0	sha256:ea12f3f775905e6653ba089c46d471152e458c62733c0ca3677ced3ccf84e2be

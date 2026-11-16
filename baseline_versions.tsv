@@ -1,0 +1,7 @@
+tool	software_version	database_version_or_release	notes
+Bakta	1.11.4	6.0 full; 2025-02-24	Minimum supported software version in metadata: 1.11
+geNomad	1.11.1	1.9	
+MOB-suite	3.1.9	downloaded 2025-10-21	Database status file reports download date, not a release number
+StarAMR	0.11.1	ResFinder dist 2.4.0; update 2.6.0; PointFinder 4.1.1; PlasmidFinder 2.2.0	
+RGI	6.0.5	CARD 3.2.7	
+AMRFinderPlus	4.2.5	2026-01-21.1	Standalone AMRFinderPlus database used for ARG searches
