@@ -2,7 +2,7 @@
 
 Nextflow workflow for Bakta annotation, geNomad virus/plasmid detection, MOB-suite plasmid reconstruction, StarAMR, RGI and AMRFinderPlus. Tools run in version-pinned containers; databases are prepared separately.
 
-**Status: draft.** The pipeline completed a four-genome SLURM run on Nextflow 26.10.6 and SingularityCE 3.11.1 using Nextflow's legacy parser. Strict-parser compatibility after the recent syntax fix has not yet been checked. Local execution, empty-input handling and broader output validation also remain to be tested. Review results before interpreting them.
+**Status: The pipeline completed a four-genome SLURM run on Nextflow 26.10.6 and SingularityCE 3.11.1 using Nextflow's legacy parser. Strict-parser compatibility after the recent syntax fix has not yet been checked. Local execution, empty-input handling and broader output validation also remain to be tested. Review results before interpreting them.
 
 ## Requirements
 
