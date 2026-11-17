@@ -15,8 +15,8 @@ Nextflow workflow for Bakta annotation, geNomad virus/plasmid detection, MOB-sui
 Clone the repository and enter it:
 
 ```bash
-git clone https://github.com/kayanac/genome-annotation.git
-cd genome-annotation
+git clone https://github.com/kayanac/bacterial-genome-annotation.git
+cd bacterial-genome-annotation
 export PROJECT_DIR="$PWD"
 mkdir -p images
 ```
